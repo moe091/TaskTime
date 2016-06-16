@@ -28,7 +28,7 @@ test:
   database: tasktime_test
   pool: 5
   username: root
-  password:
+  password: 10mojo17
   socket: /var/run/mysqld/mysqld.sock
 
 production:

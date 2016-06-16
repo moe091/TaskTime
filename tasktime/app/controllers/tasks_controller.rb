@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(1)
     respond_with(@task)
   end
 
