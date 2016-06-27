@@ -80,3 +80,42 @@ td {
 .edit {
 	width: 10%;
 }
+
+
+#sessions-partial {
+	
+	background:#e4e5e6;
+
+	border-top: 1px #ccc solid;
+	width: 100%;
+}
+
+.session-container {
+	padding: 25px;
+}
+
+.session-box {
+	background:#50597b;
+}
+
+
+
+
+
+.session-wrap {
+	padding: 25px;
+}
+
+.session-col {
+	height: 300px;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	border-radius: 16px;
+	background: #fff;
+
+-webkit-box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
+box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
+
+
+}
