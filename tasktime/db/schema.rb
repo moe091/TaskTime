@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160613183329) do
+ActiveRecord::Schema.define(:version => 20160627000222) do
+
+  create_table "sessions", :force => true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "duration"
+    t.integer  "task_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["task_id"], :name => "index_sessions_on_task_id"
 
   create_table "tasks", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20160613183329) do
     t.datetime "end_date"
     t.integer  "goal"
     t.integer  "completed"
+    t.integer  "time_period"
   end
 
   add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"

@@ -1,16 +1,17 @@
 <table>
   <thead>
     <tr>
-      <th><%= link_to "Name", :sort => "name" %></th>
-      <th><%= link_to "% Completed", :sort => "percentage" %></th>
-      <th><%= link_to "Time left", :sort => "time_left" %></th>
-      <th><%= link_to "Ending in", :sort => "ending_in" %></th>
+    	
+      <th><%= link_to "Name", :sort => "name"%></th>
+      <th><%= link_to "% Completed", :sort => "percentage"%></th>
+      <th><%= link_to "Time left", :sort => "time_left"%></th>
+      <th><%= link_to "Ending in", :sort => "ending_in"%></th>
     </tr>
   </thead>
   
   <tbody>
 	<% @tasks.each do |task| %>
-		<tr>
+		<tr class="row-<%= task.id %>">
 
 			<td class="table-name table-name-<%= task.id %>"> <strong><%= link_to task.name, task %></strong> </td>
 			<td class="table-percent table-percent-<%= task.id %>"> 
@@ -21,8 +22,8 @@
 				</p>
 			
 			</td>
-			<td class="table-completed table-completed-<%= task.id %>"> <%= task.completed %> / <%= task.goal %> Hours</td>
-			<td class="table-timeleft table-timeleft-<%= task.id %>"> <%= time_left(task) %> </td>
+			<td class="table-completed table-completed-<%= task.id %>"><%= task.goal - task.completed %> Hours - (<%= task.completed %> / <%= task.goal %>)</td>
+			<td class="table-timeleft table-timeleft-<%= task.id %>"> <%= ending(task) %> </td>
 
 		</tr>
 	<% end %>

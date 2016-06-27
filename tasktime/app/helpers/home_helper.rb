@@ -4,7 +4,7 @@ module HomeHelper
 
 	end
 
-	def time_left(task)
+	def ending(task)
 		hours = (((task.end_date - DateTime.now) / 1.hour).round)
 		days = ((task.end_date - DateTime.now) / 1.day).round
 
@@ -25,16 +25,17 @@ module HomeHelper
 		return format("%02d:%02d", hours, mins)
 	end
 
-	def order_by_percent(tasks)
-		tasks.order("completed")
+	def sort_percentage(tasks) 
+		tasks.sort{|a, b| task_percentage(a) <=> task_percentage(b)}
+	end
+
+	def sort_timeleft(tasks)
+		
 	end
 
 end
 
 
-def sort_percentage(tasks) 
-	tasks.sort{|a, b| task_percentage(a) <=> task_percentage(b)}
-end
 
 
 def sort_ending(tasks)

@@ -1,9 +1,14 @@
-<p id="notice"><%= notice %></p>
+<head>
+<%= stylesheet_link_tag    "tasks", :media => "all" %>
+</head>
+<div class="task-head-div">
+	<h2 class="task-head"><%= @task.name %></h2>
+	<h3 class="head-back"><a href="/">Back</a></h3>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @task.user %>
-</p>
+<div id="table-partial">
+	<%= render(:partial => "table") %>
+</div>
 
 
 <%= link_to 'Edit', edit_task_path(@task) %> |

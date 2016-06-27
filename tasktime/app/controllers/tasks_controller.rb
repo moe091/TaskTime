@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(1)
+    @task = Task.find(params[:id])
     respond_with(@task)
   end
 
