@@ -37,6 +37,28 @@ class TasksController < ApplicationController
     respond_with(@task)
   end
 
+
+
+  def start_timer
+    @start = DateTime.now
+    puts params[:task_id]
+    puts @start
+    puts "HERE"
+    puts @start
+        puts @start
+    puts "HERE"
+    puts @start
+        puts @start
+    puts "HERE"
+    puts @start
+  end
+
+  def create_session
+    @session = Session.new()
+    @session.duration = params[:duration]
+    Task.find(params[:task]).sessions << @session
+  end
+
   private
     def set_task
       @task = Task.find(params[:id])

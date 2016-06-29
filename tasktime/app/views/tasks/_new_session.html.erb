@@ -1,0 +1,40 @@
+<% session = Session.new %>
+<% session.task = @task %>
+<% session.duration = 0 %>
+<% @session = Session.new %>
+<!-- Move the above code to controller when New Session button is set up -->
+<div class="new-session session-col">
+			<div class="session-title new-title">
+						<%= session.task.name %> <br>
+					</div>
+
+					<div class="new-content session-content"> <!-- SESSION CONTENT -->
+
+					
+						<div class="new-circle circle">
+							<div class="circle-cover">
+							<div class="circle2">
+								
+							</div>
+							</div>
+							<span class="session-duration session-duration-new"> 00:00:00</span>
+						</div>
+
+						<div class="new-buttons">
+							<button type="button" class="btn btn-success btn-start session-btn btn-lg" onclick="startTimer()">Start</button>
+							<button type="button" class="btn btn-danger btn-stop session-btn btn-lg" onclick="stopTimer()">Stop</button>
+						</div>
+
+
+						<div class="new-text new-note session-text session-note"> <%= session.note %> </div>
+
+
+						<span class="new-links">
+							<%= link_to "Delete", {:action => "start_timer", :controller => "tasks"}, :method => :post, :remote => true, class: "new-delete" %> - 
+							<%= link_to "Save", {:action => "start_timer", :controller => "tasks", :task_id => @task.id}, :method => :post, :ses => session, :remote => true, class: "new-save" %>
+						</span>
+
+
+					</div> 		<!-- SESSION CONTENT -->
+
+		</div>

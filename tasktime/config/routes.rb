@@ -5,7 +5,8 @@ Tasktime::Application.routes.draw do
 
   resources :tasks
 
-
+  post 'tasks/create_session' => 'tasks#create_session', :as => :add_session
+  post 'tasks/start_timer' => 'tasks#start_timer', :as => :start_timer
   root :to => "home#home"
   devise_for :users
 

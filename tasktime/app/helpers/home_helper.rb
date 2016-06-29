@@ -29,6 +29,10 @@ module HomeHelper
 		tasks.sort{|a, b| task_percentage(a) <=> task_percentage(b)}
 	end
 
+	def sort_hours_until_goal(tasks) 
+		tasks.sort{|a, b| (a.goal - a.completed) <=> (b.goal - b.completed)}
+	end
+
 	def sort_timeleft(tasks)
 		
 	end

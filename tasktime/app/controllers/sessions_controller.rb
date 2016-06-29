@@ -5,6 +5,16 @@ class SessionsController < ApplicationController
 
   def index
     @sessions = Session.all
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+    puts(params)
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+
     respond_with(@sessions)
   end
 
@@ -22,7 +32,14 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(params[:session])
-    @session.save
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
+    puts params
+    puts("RAILS")
+    puts("RAILS")
+    puts("RAILS")
     respond_with(@session)
   end
 

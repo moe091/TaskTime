@@ -30,12 +30,12 @@
 <% if @cur_user %>
 <div class="header-div">
 
-	<h1 class="my-tasks">My Tasks</h1>
+	<h1 class="my-tasks"><%= @cur_user.username %>'s Tasks</h1>
 
 
 	<div class="dropdown sort-dropdown">
 	  <button class="btn btn-success dropdown-toggle sort-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="toggle_dropdown()">
-	    Sort By:
+	    New Task
 	  </button>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
 		  <ul class="sort-list">

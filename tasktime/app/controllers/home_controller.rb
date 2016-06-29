@@ -9,8 +9,8 @@ class HomeController < ApplicationController
   		@cur_user.tasks.order("end_date ASC")
   	when "percentage"
   		sort_percentage(@cur_user.tasks)
-  	when "time_left"
-  		@cur_user.tasks.order("end_date")
+  	when "hours_until_goal"
+  		sort_hours_until_goal(@cur_user.tasks)
   	else
   		@cur_user.tasks
   	end
