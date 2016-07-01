@@ -1,11 +1,13 @@
 var seconds = 0;
 var timing = false;
-
-function showTimer() {
-	
-}
+var startTime = null;
+var endTime = null;
+var task_id = 90;
 
 function startTimer() {
+	if (startTime == null)
+		startTime = new Date();
+	console.log(startTime);
 	timing = true;
 	timer();
 }
@@ -17,18 +19,39 @@ function timer() {
 function add() {
 	if (timing) {
 		seconds++;
+		
 		$(".session-duration-new").html(seconds_in_time(seconds));
 		timer();
 	}
 }
 
-function stopTimer() {
-	timing = false;
-
-}
 
 
 
+//ON LOAD
+
+  // Wait for the page to load first
+        window.onload = function() {
+
+          //Get a reference to the link on the page
+          // with an id of "mylink"
+          var save_new = document.getElementById("save_new");
+
+          //Set code to run when the link is clicked
+          // by assigning a function to "onclick"
+          save_new.onclick = function() {
+          	if (!timing) {
+	          	$.ajax({
+					type: "POST",
+					url: "/tasks/create_session",
+					datatype: "json",
+					data: {duration: seconds, start: Number(startTime) / 1000, end: Number(endTime) / 1000, task_id: task_id}
+				})
+          	}
+            
+            return false;
+          }
+        }
 
 //HELPERS
 

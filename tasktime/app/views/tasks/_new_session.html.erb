@@ -1,7 +1,10 @@
 <% session = Session.new %>
 <% session.task = @task %>
 <% session.duration = 0 %>
-<% @session = Session.new %>
+<% session.start = 0 %>
+<% session.end = 0 %>
+
+<%= @duration %>
 <!-- Move the above code to controller when New Session button is set up -->
 <div class="new-session session-col">
 			<div class="session-title new-title">
@@ -21,8 +24,12 @@
 						</div>
 
 						<div class="new-buttons">
-							<button type="button" class="btn btn-success btn-start session-btn btn-lg" onclick="startTimer()">Start</button>
-							<button type="button" class="btn btn-danger btn-stop session-btn btn-lg" onclick="stopTimer()">Stop</button>
+							<span class="but-wrap">
+								<%= button_to "Start", {:action => "start_timer", :controller => "tasks", :start => session.start}, :method => :post, :remote => true, class: "btn btn-success btn-start session-btn btn-lg" %>
+
+								<button type="button" class="btn btn-danger btn-stop session-btn btn-lg" onclick="stopTimer(<%= @task.id %>)">Stop</button>
+							</span>
+
 						</div>
 
 
@@ -30,9 +37,55 @@
 
 
 						<span class="new-links">
+
 							<%= link_to "Delete", {:action => "start_timer", :controller => "tasks"}, :method => :post, :remote => true, class: "new-delete" %> - 
-							<%= link_to "Save", {:action => "start_timer", :controller => "tasks", :task_id => @task.id}, :method => :post, :ses => session, :remote => true, class: "new-save" %>
+							<a id="save_new" href="#">Save</a>
+							<!--
+							 <= link_to "Save", 
+								{:action => "start_timer", :controller => "tasks", :task_id => @task.id,
+								:start => session.start,
+								:duration => session.duration,
+								:end => session.end},
+								:method => :post,
+								:remote => true, 
+								class: "new-save" >
+							-->
+
 						</span>
+
+						<!--
+						<button type="button" class="btn btn-success btn-start session-btn btn-lg" onclick="startTimer()">Start</button>
+
+						<= link_to "Save", 
+								{:action => "start_timer", :controller => "tasks", :task_id => @task.id,
+								:start => session.start,
+								:duration => session.duration,
+								:end => session.end},
+								:method => :post,
+								:remote => true, 
+								class: "new-save" >
+
+
+							click start
+								if start time isn't set -> set start time
+								start timer counting
+
+							click save
+								message (stop timer before saving)
+
+							click stop
+								stop timer
+								set / update end time
+								set / update duration
+
+							click save
+								set note
+								send params to controller
+								create new session and save it, add to task
+								update page - ajax
+
+
+						-->
 
 
 					</div> 		<!-- SESSION CONTENT -->

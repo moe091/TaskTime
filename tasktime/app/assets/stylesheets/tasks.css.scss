@@ -291,7 +291,7 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 
 .new-session {
 	width: 350px;
-	height: 350px;
+	height: 320px;
 }
 
 .new-circle {
@@ -328,6 +328,10 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 	font-size: 1.2em;
 }
 
+.new-buttons {
+	
+}
+
 .new-save a:visited,
 .new-delete a:visited {
 	color: #5489dd;
@@ -335,4 +339,15 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 
 .new-delete a:visited {
 	color: #f00;
+}
+
+.button_to,
+.button_to div {
+	display: inline;
+}
+.but-wrap {
+	width: 100%;
+	align-text: center;
+	height: 20px;
+	display: inline-block;
 }
