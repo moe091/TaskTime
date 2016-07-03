@@ -290,17 +290,39 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 }
 
 .new-session {
-	width: 350px;
-	height: 320px;
+	min-width: 190px;
+	height: 275px;
+	display: none;
 }
 
+.new-session-button {
+	min-width: 190px;
+	height: 60px;
+	border-radius: 12px;
+	background-color: #fff;
+	border: 1px #555 solid;
+	text-align: center;
+	font-size: 2em;
+	color: #000;
+	padding: 4px;
+}
+
+.new-session-btn {
+	border: 1px black solid;
+	font-weight: 900;
+}
+
+.new-content {
+	padding-top: 1px;
+	height: 242px;
+}
 .new-circle {
 	top: 5%;
 }
 
 .new-buttons {
 	width: auto;
-	margin: 15px auto 0 auto;
+	margin: 10px auto 0 auto;
 	text-align: center;
 }
 
@@ -310,7 +332,8 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 
 
 .new-note {
-	top: 160px;
+	top: 145px;
+	height: 60px;
 }
 
 .session-duration-new {

@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   	when "hours_until_goal"
   		sort_hours_until_goal(@cur_user.tasks)
   	else
-  		@cur_user.tasks
+      @cur_user.tasks if @cur_user
   	end
 
 

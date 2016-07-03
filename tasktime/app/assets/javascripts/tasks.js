@@ -26,7 +26,26 @@ function add() {
 }
 
 
+function stopTimer(task) {
+	task_id = task;
+	timing = false;
+	endTime = new Date();
+	$.ajax({
+		type: "POST",
+		url: "/tasks/stop_timer",
+		datatype: "json",
+		data: {duration: seconds, start: Number(startTime) / 1000, end: Number(endTime) / 1000, task_id: task}
+	})
+	endTime = new Date();
+	console.log("stopped");
+	console.log(Number(startTime) / 1000);
+}
 
+function show_new_session() {
+	$("#new-ses-btn").hide();
+	$("#new-session").show(400);
+
+}
 
 //ON LOAD
 
@@ -39,18 +58,21 @@ function add() {
 
           //Set code to run when the link is clicked
           // by assigning a function to "onclick"
-          save_new.onclick = function() {
-          	if (!timing) {
-	          	$.ajax({
-					type: "POST",
-					url: "/tasks/create_session",
-					datatype: "json",
-					data: {duration: seconds, start: Number(startTime) / 1000, end: Number(endTime) / 1000, task_id: task_id}
-				})
-          	}
-            
-            return false;
-          }
+          	if (save_new) {
+	          save_new.onclick = function() {
+	          	if (!timing) {
+		          	$.ajax({
+						type: "POST",
+						url: "/tasks/create_session",
+						datatype: "json",
+						data: {duration: seconds, start: Number(startTime) / 1000, end: Number(endTime) / 1000, task_id: task_id}
+					})
+	          	}
+	            
+	            return false;
+	          }
+	       	}
+
         }
 
 //HELPERS

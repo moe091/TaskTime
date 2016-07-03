@@ -18,9 +18,9 @@
 		<div class="column-wrap">
 
 
-	<%= render(:partial => "new_session", :task => @task) %> 
 
 <% count = 0 %>
+<% first = true %>
 
 <% @task.sessions.each do |session| %> <!-- Display all session;  TODO: add show:this week/day/etc. and paginate -->
 	<% count = count + 1 %> 
@@ -30,6 +30,15 @@
 			<div class="col-md-6 session-splitter">
 
 	<% end %>
+
+	<% if first %>
+	<div class="col-sm-6 session-wrap">
+		<div id="new-ses-btn" class="new-session-button"><button onclick="show_new_session()" class="btn btn-primary new-session-btn">+ New Session</button></div>
+		<%= render(:partial => "new_session", :task => @task) %>
+	</div>
+		<% first = false %>
+
+	<% else %>
 
 			<div class="col-sm-6 session-wrap">
 				<div class="session-col">
@@ -64,6 +73,8 @@
 
 				</div> <!-- Session col -->
 			</div> <!-- Session Wrap (inner 6-col) -->
+
+	<% end %>
 
 	<% if count == 2 then %>
 

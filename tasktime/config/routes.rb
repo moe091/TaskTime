@@ -4,12 +4,16 @@ Tasktime::Application.routes.draw do
 
 
   resources :tasks
-
+  devise_for :users
+  devise_scope :user do 
+    root to: 'home#home'
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
   post 'tasks/create_session' => 'tasks#create_session', :as => :create_session
   post 'tasks/start_timer' => 'tasks#start_timer', :as => :start_timer
   post 'tasks/stop_timer' => 'tasks#stop_timer', :as => :stop_timer
   root :to => "home#home"
-  devise_for :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
