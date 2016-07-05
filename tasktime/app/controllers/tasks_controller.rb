@@ -46,26 +46,20 @@ class TasksController < ApplicationController
     @end = params[:end]
   end
 
-  def stop_timer
-    #receive start, duration, end, task, and create session + add to task
-    #puts "STOPPED"
-    #puts "Duration: " + params[:duration]
-    #puts "Start: " 
-    #puts Time.at(params[:start].to_i)
-    #puts "End: " 
-    #puts Time.at(params[:end].to_i)
-    #puts "Task: "
-    #puts params[:task_id]
-  end
-
   def create_session
     puts params
-    @session = Session.new(start: Time.at(params[:start].to_i), duration: params[:duration], end: Time.at(params[:end].to_i), note: "Created with create session")
-    @session.save();
+    puts "\n\n\n\n\nCREATE SESSION \n\n\n\n"
+    @task = Task.find(params[:task_id])
+    @session = Session.new(start: Time.at(params[:start].to_i), duration: params[:duration], end: Time.at(params[:end].to_i), note: params[:note])
     Task.find(params[:task_id]).sessions << @session
-    puts @session
-    puts @session.task_id
   end
+
+  def show_sessions
+    puts "\n\n\n\n\n\n\n SHOW SESSIONS \n\n\n\n\n\n"
+    @task = Task.find(params[:id])
+    render :partial => "sessions", :layout => false
+  end
+
 
   private
     def set_task

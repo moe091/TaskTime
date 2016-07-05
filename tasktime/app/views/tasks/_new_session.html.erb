@@ -31,12 +31,14 @@
 
 			</div>
 
-			<div class="new-text new-note session-text session-note"> <%= session.note %> </div>
+			<div class="new-text new-note session-text session-note">
+				<textarea id="note-text-new">Enter session note here.</textarea>
+			</div>
 
 			<span class="new-links">
 
 				<%= link_to "Delete", {:action => "start_timer", :controller => "tasks"}, :method => :post, :remote => true, class: "new-delete" %> - 
-				<a id="save_new" href="#">Save</a>
+				<a id="save_new" onclick="save_new()">Save</a>
 							
 			</span>
 

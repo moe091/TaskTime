@@ -4,8 +4,10 @@
     	
       <th><%= link_to "Name", :sort => "name"%></th>
       <th><%= link_to "% Completed", :sort => "percentage"%></th>
-      <th><%= link_to "Time Until Goal", :sort => "hours_until_goal"%></th>
+      <th><%= link_to "Work Left", :sort => "hours_until_goal"%></th>
+      <th><%= link_to "Goal", :sort => "goal" %></th>
       <th><%= link_to "Ending in", :sort => "ending_in"%></th>
+      
     </tr>
   </thead>
   
@@ -22,7 +24,9 @@
 				</p>
 			
 			</td>
-			<td class="table-completed table-completed-<%= task.id %>"><%= task.goal - task.completed %> Hours - (<%= task.completed %> / <%= task.goal %>)</td>
+			<td class="table-completed table-completed-<%= task.id %>"><%= format_minutes(task.goal - task.completed) %> Hours</td>
+
+			<td class="table-goal table-goal-<%= task.id %>"> <%= format_minutes(task.goal) %> Hours </td>
 			<td class="table-timeleft table-timeleft-<%= task.id %>"> <%= ending(task) %> </td>
 
 		</tr>

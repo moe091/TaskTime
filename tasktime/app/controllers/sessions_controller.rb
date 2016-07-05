@@ -5,21 +5,14 @@ class SessionsController < ApplicationController
 
   def index
     @sessions = Session.all
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
-    puts(params)
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
 
     respond_with(@sessions)
   end
 
   def show
     respond_with(@session)
+    @task = Task.find(params[:id])
+    render :layout => false
   end
 
   def new
@@ -32,14 +25,6 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(params[:session])
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
-    puts params
-    puts("RAILS")
-    puts("RAILS")
-    puts("RAILS")
     respond_with(@session)
   end
 
