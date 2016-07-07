@@ -17,16 +17,30 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    respond_with(@task)
+    @cur_user = current_user
+    puts "\n\n\n\n\n\n"
+    puts "TASK - NEW"
+    puts "\n\n\n\n\n\n"
+        puts "-"
+    puts current_user
+    puts "-"
+    render :partial => "home/new_task_modal"
   end
 
   def edit
   end
 
   def create
+    puts "-"
+    puts current_user
+    puts "-"
     @task = Task.new(params[:task])
-    @task.save
-    respond_with(@task)
+    @task.completed = 0
+    @task.end_date = DateTime.now + @task.time_period.hours
+    @task.start_date = DateTime.now
+    current_user.tasks << @task
+
+    redirect_to :controller => "home", :action => "home"
   end
 
   def update

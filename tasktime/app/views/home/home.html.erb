@@ -35,17 +35,15 @@
 	<h1 class="my-tasks"><%= @cur_user.username %>'s Tasks</h1>
 
 
-	<div class="dropdown sort-dropdown">
-	  <button class="btn btn-success dropdown-toggle sort-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="toggle_dropdown()">
-	    New Task
-	  </button>
-	  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-		  <ul class="sort-list">
-		  	<li><a class="dropdown-item" href="#">Time Left</a></li>
-		  	<li><a class="dropdown-item" href="#">Percent Completed</a></li>
-		    <li><a class="dropdown-item" href="#">Recently Created</a></li>
-		  </ul>
-	  </div>
+
+
+	<button class="btn btn-primary modal-button" data-remote="true" onclick="show_task_modal()">
+    	New Task
+  	</button>
+
+  <!-- Modal -->
+  	<div class="modal fade" id="new-task-modal" tabindex="-1" role="dialog" aria-labelledby="new-task-label" aria-hidden="true">
+	  
 	</div>
 
 </div>
