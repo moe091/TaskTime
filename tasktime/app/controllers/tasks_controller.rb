@@ -39,8 +39,11 @@ class TasksController < ApplicationController
     @task.end_date = DateTime.now + @task.time_period.hours
     @task.start_date = DateTime.now
     current_user.tasks << @task
-
-    redirect_to :controller => "home", :action => "home"
+    puts "RENDER HOME/TABLE - TASK CREATE"
+    puts current_user.tasks
+    @tasks = current_user.tasks
+    puts @tasks
+    render :layout => false
   end
 
   def update

@@ -28,6 +28,7 @@ module TasksHelper
 		hours = seconds / 3600
 		mins = (seconds / 60) % 60
 
-		return format("%02d:%02d", hours, mins)
+		return format("%02d:%02d:%02d", hours, mins, seconds % 60)
 	end
+
 end

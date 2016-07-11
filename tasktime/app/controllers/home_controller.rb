@@ -18,6 +18,13 @@ class HomeController < ApplicationController
 
   end
 
+  def task_table
+    puts "TASK _ TABLE"
+    @cur_user = current_user
+    @tasks = @cur_user.tasks
+    render :partial => "table"
+  end
+
   def show
 
   end
