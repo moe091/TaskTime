@@ -13,6 +13,7 @@ Tasktime::Application.routes.draw do
   post 'tasks/start_timer' => 'tasks#start_timer', :as => :start_timer
   post 'tasks/stop_timer' => 'tasks#stop_timer', :as => :stop_timer
   get 'tasks/show_sessions/:id' => 'tasks#show_sessions'
+  get 'home/task_table' => 'home#task_table'
   root :to => "home#home"
 
 

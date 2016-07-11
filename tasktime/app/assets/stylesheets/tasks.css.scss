@@ -13,6 +13,14 @@ table {
 box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 }	
 
+.navbar {
+	margin-bottom: 0;
+}
+
+#table-partial {
+	background-color: #eaecee;
+}
+
 .table-header {
 	text-align: center;
 	font-size: 1.2em;
@@ -64,8 +72,14 @@ body {
 .task-head-div {
 	width: 60%;
 	border-bottom: 1px #333solid;
-	margin: 0 auto;
+	margin: 20px auto;
 	position: relative;
+}
+
+.top-wrap {
+	background-color: #eaecee;
+	position: relative;
+	top: 0;	
 }
 
 
@@ -108,13 +122,7 @@ td {
 #sessions-partial {
 	
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a0a0a0+0,d6d6d6+51 */
-background: #a0a0a0; /* Old browsers */
-background: -moz-linear-gradient(top,  #a0a0a0 0%, #d6d6d6 51%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #a0a0a0 0%,#d6d6d6 51%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #a0a0a0 0%,#d6d6d6 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0a0a0', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-9 */
-
-
+background: #F1F0FF;
 
 
 	border-top: 1px #ccc solid;
@@ -122,7 +130,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0a0a0', end
 }
 
 .session-container {
-
+	background-color: #f2f3fe;
 }
 
 .session-box {
@@ -137,20 +145,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0a0a0', end
 
 
 .session-wrap {
-	padding: 15px 1%;
+	padding: 0px 3%;
 	margin: 0;
 }
 
 .column-wrap {
-	margin: 0 4%;
+	width: 80%;
+	margin: 0 auto;
 
 }
 .session-col {
-	height: 275px;
+	height: 245px;
 	-webkit-border-radius: 16px;
 	-moz-border-radius: 16px;
 	border-radius: 16px;
-	background: #ececec;
+	border: 1px #fff solid;
+	background: #ebecef;
 
 	min-width: 190px;
 
@@ -207,8 +217,8 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 .circle {
 	position: relative;
 	margin: 0 auto;
-	bottom: -12%;
-	width: 80px;
+	bottom: -5%;
+	width: 65px;
 	background-color: inherit;
 }
 
@@ -249,10 +259,10 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 	z-index: 2;
 	position: absolute;
 	top: 30%;
-	left: 0%;
+	left: 0;
 	width: 100%;
 	height: 100%;
-	font-size: 2.7em;
+	font-size: 1.1em;
 	text-align: center;
 	vertical-align: middle;
 	border-radius: 50%;
@@ -280,7 +290,7 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 	left: 8px;
 	right: 8px;
 	height: 70px;
-	background-color: #dfdfdf;
+	background-color: #f4f5f7;
 	overflow: hidden;
 	font-size: 1.2em;
 	line-height: 16px;
@@ -291,7 +301,7 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 
 .new-session {
 	min-width: 190px;
-	height: 275px;
+	height: 245px;
 	display: none;
 }
 
@@ -299,7 +309,7 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 	min-width: 190px;
 	height: 60px;
 	border-radius: 12px;
-	background-color: #fff;
+	background-color: #ebecef;
 	border: 1px #555 solid;
 	text-align: center;
 	font-size: 2em;
@@ -313,11 +323,13 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 }
 
 .new-content {
-	padding-top: 1joipx;
-	height: 242px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 .new-circle {
-	top: 5%;
+	top: 2%;
 }
 
 .new-buttons {
@@ -327,13 +339,17 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 }
 
 .session-btn {
-	margin: 5px 10px;
+	margin: 0px 20px;
 }
 
 
 .new-note {
-	top: 145px;
+	top: 115px;
 	height: 60px;
+	padding: 0;
+	width: 80%;
+	margin: 0 auto;
+	border: 0;
 }
 
 #note-text-new {
@@ -349,7 +365,7 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 .new-links {
 	position: absolute;
 	bottom: 8px;
-	right: 10px;
+	right: 33px;
 }
 
 .new-links a {
@@ -379,4 +395,21 @@ box-shadow: 4px 4px 13px 1px rgba(0,0,0,0.75);
 	align-text: center;
 	height: 20px;
 	display: inline-block;
+}
+
+* { padding: 0; margin: 0; }
+
+html, body {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+.footer {
+	background-color: #F1F0FF;
 }
